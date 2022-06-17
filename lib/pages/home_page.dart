@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suivi_de_projets/widgets/left_nav_bar.dart';
 
 import '../models/make_it_responsive.dart';
 import '../widgets/web_bar.dart';
@@ -16,14 +17,21 @@ class HomeState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
     ScreenSize screenSize = MakeItResponsive().getScreenSize(context);
     return Scaffold(
-      appBar: (screenSize == ScreenSize.small)
-          ? WebBar(size: size)
-          : WebBar(size: size),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [],
-        ),
-      ),
-    );
+        appBar: (screenSize == ScreenSize.small)
+            ? WebBar(
+                titlePage: "Home",
+                size: size,
+                isUserLogged: true,
+              )
+            : WebBar(
+                titlePage: "Home",
+                size: size,
+                isUserLogged: true,
+              ),
+        body: Row(
+          children: [
+            LeftNavBar(size: size),
+          ],
+        ));
   }
 }
