@@ -17,11 +17,11 @@ class WebBar extends PreferredSize {
             key: key,
             preferredSize: Size((size.width), (size.height / 3)),
             child: Container(
-              color: bleuCanard,
+              color: appBarBack,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Branding(titlePage: titlePage),
+                  Branding(),
                   Visibility(
                       visible: isUserLogged,
                       child: Expanded(

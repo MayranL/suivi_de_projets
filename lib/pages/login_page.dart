@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:suivi_de_projets/constants.dart';
-import 'package:suivi_de_projets/pages/home_page.dart';
 
 import '../models/make_it_responsive.dart';
-import '../widgets/web_bar.dart';
+import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,70 +16,88 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     ScreenSize screenSize = MakeItResponsive().getScreenSize(context);
+    bool isSmallScreen = (screenSize == ScreenSize.small);
+    double paddingSize = isSmallScreen ? 10 : (size.width - 500) / 2;
+    int paddingLogo = isSmallScreen ? 35 : 70;
+
     return Scaffold(
-        appBar: (screenSize == ScreenSize.small)
-            ? WebBar(
-                titlePage: "Login",
-                size: size,
-                isUserLogged: false,
-              )
-            : WebBar(
-                titlePage: "Login",
-                size: size,
-                isUserLogged: false,
-              ),
+        appBar: getAppBar(context, size),
         body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: size.height / 4),
-                child: Center(
-                  child: Container(
-                    width: 200,
-                    height: 100,
-                    child: Image.asset(sncfLogo),
-                  ),
-                ),
+            child: Column(children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: isSmallScreen ? 30 : 70),
+            child: Center(
+              child: Container(
+                width: 200,
+                height: 100,
+                child: Image.asset(sncfLogo),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10, left: 300, right: 300),
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Nom d\' utilisateur',
-                      hintText: 'Entrez votre nom d\'utilisateur.'),
-                ),
-              ),
-              const Padding(
-                padding:
-                    EdgeInsets.only(top: 15, left: 300, right: 300, bottom: 50),
-                child: TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Mot de passe',
-                      hintText: 'Entrez votre mot de passe.'),
-                ),
-              ),
-              Container(
-                height: 50,
-                width: 250,
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(20)),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const HomePage()));
-                  },
-                  child: const Text(
-                    'Connexion',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
-                  ),
-                ),
-              )
-            ],
+            ),
           ),
-        ));
+          Padding(
+            padding:
+                EdgeInsets.only(top: 10, left: paddingSize, right: paddingSize),
+            child: const TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Nom d\' utilisateur',
+                  hintText: 'Entrez votre nom d\'utilisateur.'),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                top: 15, left: paddingSize, right: paddingSize, bottom: 50),
+            child: const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Mot de passe',
+                  hintText: 'Entrez votre mot de passe.'),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: paddingSize, right: paddingSize),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(20),
+                        minimumSize: const Size(100, 50),
+                        primary: Colors.orange,
+                        onPrimary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0))),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const HomePage()));
+                    },
+                    child: const Text('Créer un compte'),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(20),
+                        minimumSize: const Size(100, 50),
+                        primary: Colors.green,
+                        onPrimary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0))),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const HomePage()));
+                    },
+                    child: const Text('Se connecter'),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ])));
   }
 }

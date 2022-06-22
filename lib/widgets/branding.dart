@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:suivi_de_projets/constants.dart';
 import 'package:suivi_de_projets/widgets/header_title_text.dart';
+import 'package:suivi_de_projets/widgets/phonebar_title_text.dart';
+
+import '../models/make_it_responsive.dart';
 
 class Branding extends StatelessWidget {
-  String titlePage;
-
-  Branding({Key? key, required this.titlePage}) : super(key: key);
+  Branding({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ScreenSize screenSize = MakeItResponsive().getScreenSize(context);
+    bool isSmallScreen = (screenSize == ScreenSize.small);
     return Row(
       children: [
         const Padding(padding: EdgeInsets.all(10)),
@@ -18,7 +21,8 @@ class Branding extends StatelessWidget {
           width: 60,
         ),
         const Padding(padding: EdgeInsets.all(10)),
-        HeaderTitleText(string: "Suivi de projets - $titlePage"),
+        if (isSmallScreen) PhonebarTitleText(title: titleApp),
+        if (!isSmallScreen) HeaderTitleText(title: titleApp),
       ],
     );
   }

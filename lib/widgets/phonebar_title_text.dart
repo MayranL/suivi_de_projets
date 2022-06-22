@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class HeaderTitleText extends Text {
+class PhonebarTitleText extends Text {
   String title;
 
-  HeaderTitleText({Key? key, this.title = ''})
+  PhonebarTitleText({Key? key, required this.title})
       : super(
             key: key,
             title,
             style: const TextStyle(
                 color: Colors.white,
-                fontWeight: FontWeight.w900,
-                fontSize: 30,
+                fontWeight: FontWeight.w500,
+                fontSize: 20,
                 fontFamily: 'Avenir',
                 fontStyle: FontStyle.normal));
 }
