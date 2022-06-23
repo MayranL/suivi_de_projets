@@ -2,6 +2,10 @@
 
 Suivi de projets interne pour la D2D.
 
+## Maquettes
+
+La maquette necessite le logiciel [Justinmind](https://www.justinmind.com/)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
