@@ -24,8 +24,7 @@ class AddNewProjectPageState extends State<AddNewProjectPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            width: (_isSmallScreen) ? 0 : 150,
-            color: Colors.grey,
+
           ),
           Container(
             width: (_isSmallScreen) ? _size.width : _size.width - 150,
@@ -33,6 +32,7 @@ class AddNewProjectPageState extends State<AddNewProjectPage> {
                 ? const NewProjectSmallForm()
                 : const NewProjectMediumForm(),
           )
+
         ],
       ),
     );

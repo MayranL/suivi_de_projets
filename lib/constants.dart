@@ -2,7 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:suivi_de_projets/pages/add_new_project_page.dart';
+import 'package:suivi_de_projets/pages/dashboard_page.dart';
 import 'package:suivi_de_projets/pages/home_page.dart';
+import 'package:suivi_de_projets/pages/vue_agreg.dart';
+import 'package:suivi_de_projets/pages/login_page.dart';
 import 'package:suivi_de_projets/widgets/hover_button.dart';
 import 'package:suivi_de_projets/widgets/phone_bar.dart';
 import 'package:suivi_de_projets/widgets/web_bar.dart';
@@ -12,15 +15,19 @@ import 'models/make_it_responsive.dart';
 
 // images
 String sncfLogo = "images/sncf-logo.png";
+String hub = "maquettes/hub.png";
 
 // text
 String titleApp = "Suivi de projets";
 
 // header buttons
 List<ButtonObject> menuButton = [
-  ButtonObject(text: "Hub", destination: const HomePage()),
-  ButtonObject(text: "Dashboard", destination: const HomePage()),
+  ButtonObject(text: "Login", destination: const LoginPage()),
+  ButtonObject(text: "Home", destination: const HomePage()),
+  ButtonObject(text: "Dashboard", destination: const DashboardPage()),
   ButtonObject(text: "Nouveau Projet", destination: const AddNewProjectPage()),
+  ButtonObject(text: "Vue Agregée", destination: const VueAgreg()),
+
 ];
 
 List<HoverButton> menuButtonHover() =>
@@ -66,3 +73,12 @@ getAppBar(context, size) {
     );
   }
 }
+
+space(double height, double width) {
+  return SizedBox(height: height, width: width);
+}
+
+spaceBox() {
+  return SizedBox(height: 25, width: 25);
+}
+

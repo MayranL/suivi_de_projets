@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:suivi_de_projets/pages/home_page.dart';
 import 'package:suivi_de_projets/pages/login_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -28,4 +30,8 @@ class MyApp extends StatelessWidget {
       home: const LoginPage(),
     );
   }
+}
+
+class Graphique {
+
 }
