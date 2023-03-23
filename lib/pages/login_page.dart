@@ -4,6 +4,8 @@ import 'package:suivi_de_projets/constants.dart';
 import '../models/make_it_responsive.dart';
 import 'home_page.dart';
 
+import 'package:suivi_de_projets/constantsResponsive.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -21,7 +23,8 @@ class LoginPageState extends State<LoginPage> {
     int paddingLogo = isSmallScreen ? 35 : 70;
 
     return Scaffold(
-        appBar: getAppBar(context, size),
+        appBar: myAppBar,
+        drawer: header(context),
         body: SingleChildScrollView(
             child: Column(children: <Widget>[
           Padding(

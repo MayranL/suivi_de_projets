@@ -5,6 +5,8 @@ import 'package:suivi_de_projets/widgets/new_project_small_form.dart';
 import '../models/make_it_responsive.dart';
 import '../widgets/new_project_medium_form.dart';
 
+import 'package:suivi_de_projets/constantsResponsive.dart';
+
 class AddNewProjectPage extends StatefulWidget {
   const AddNewProjectPage({Key? key}) : super(key: key);
   @override
@@ -19,13 +21,12 @@ class AddNewProjectPageState extends State<AddNewProjectPage> {
     bool _isSmallScreen = (_screenSize == ScreenSize.small);
 
     return Scaffold(
-      appBar: getAppBar(context, _size),
+      appBar: myAppBar,
+      drawer: header(context),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Container(
 
-          ),
           Container(
             width: (_isSmallScreen) ? _size.width : _size.width - 150,
             child: (_isSmallScreen)
