@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:suivi_de_projets/constants.dart';
 import 'package:suivi_de_projets/widgets/new_project_small_form.dart';
 
 import '../models/make_it_responsive.dart';

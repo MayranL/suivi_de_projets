@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:suivi_de_projets/constants.dart';
-import 'package:suivi_de_projets/pages/home_page.dart';
 import 'package:suivi_de_projets/widgets/vue_agreg_medium.dart';
 import 'package:suivi_de_projets/widgets/vue_agreg_small.dart';
 

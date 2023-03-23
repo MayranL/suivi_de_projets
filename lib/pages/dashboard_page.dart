@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:suivi_de_projets/constants.dart';
-import 'package:charts_flutter_new/flutter.dart' as charts;
 import 'package:suivi_de_projets/constantsResponsive.dart';
 import 'package:suivi_de_projets/widgets/dashboard_medium.dart';
 import 'package:suivi_de_projets/widgets/dashboard_small.dart';
-import 'package:suivi_de_projets/widgets/graph.dart';
-import 'package:pie_chart/pie_chart.dart';
 
 import '../models/make_it_responsive.dart';
-import 'home_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);

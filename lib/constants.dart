@@ -79,6 +79,6 @@ space(double height, double width) {
 }
 
 spaceBox() {
-  return SizedBox(height: 25, width: 25);
+  return const SizedBox(height: 25, width: 25);
 }
 
