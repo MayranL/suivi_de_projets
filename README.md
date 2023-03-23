@@ -19,4 +19,21 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on
 mobile development, and a full API reference.
 
+# <center>Documentation du projet : Suivi_de_projets</center>
+
+## <center>Projet mené par Loïc MAYRAN (alternant)</center>
+
+### <center>Décembre 2022 à Juillet 2023</center>
+
+Documentation complète de l'application et du développement en cours : 
+
+    -> Présentation du projet
+    -> Flutter et Dart c'est quoi ? Et pourquoi ?
+    -> Architecture de l'application
+        -> Dossier 'lib/' à expliquer dans son intégralité
+        -> Lien des docs qui sont en lien avec le développement
+    -> Développement en cours 
+    -> Développement à finir
+    -> Fonctionnalité de l'application 
+    -> Fonctionnalité voulu
 
