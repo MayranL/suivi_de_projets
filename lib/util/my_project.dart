@@ -240,7 +240,6 @@ class _AffichageInfoState extends State<AffichageInfo> {
     if (MediaQuery.of(context).size.height < 800) {
       //Affichage en mode téléphone
       if (MediaQuery.of(context).size.width < 600) {
-        //return affichageVuePhone(context);
         return Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -418,43 +417,3 @@ mainAxisAlignment: MainAxisAlignment.center,
 children: containerList2,
 );
  */
-
-//TODO : Gérer l'affichage sur le téléphone de la liste des informations
-affichageVuePhone(BuildContext context) {
-  return SingleChildScrollView(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ListView.builder(
-          padding: const EdgeInsets.all(8),
-          shrinkWrap: true,
-          itemCount: generateAspectRatioList().length,
-          itemBuilder: (BuildContext context, int index) {
-            return generateAspectRatioList()[index];
-          },
-        ),
-      ],
-    ),
-  );
-}
-
-List<AspectRatio> generateAspectRatioList() {
-  List<AspectRatio> aspectRatioList = [];
-  for (int i = 0; i < 1; i++) {
-    AspectRatio aspectRatio = AspectRatio(
-        aspectRatio: 1,
-        child: ListView(
-          padding: const EdgeInsets.all(8),
-          children: [
-            Hebergement(),
-            space(10, 1),
-            Hebergement(),
-            Cadrage(),
-            Realisation(),
-            OuvertureProd(),
-          ],
-        ));
-    aspectRatioList.add(aspectRatio);
-  }
-  return aspectRatioList;
-}
