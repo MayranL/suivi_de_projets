@@ -22,204 +22,6 @@ List images = [
 
 const List choices = [Choice(title: 'Projet1', numero: "Image(hub)")];
 
-/*
-class ListeProjet {
-  listP(int sizeListe) {
-    List container = [];
-    for (var i = 0; i < sizeListe; i++) {
-      container.add(space(10, 10));
-      container.add(
-        Expanded(
-            child: Container(
-                color: Colors.blue,
-                child: ListView(
-                  padding: const EdgeInsets.all(8),
-                  children: <Widget>[
-                    Container(
-                      height: 50,
-                      width: 300,
-                      color: Colors.amber[600],
-                      child: const Center(child: Text('Nom du projet')),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 300,
-                      color: Colors.amber[500],
-                      child: const Center(child: Text(' Porteur : ')),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 300,
-                      color: Colors.amber[500],
-                      child: const Center(child: Text(' Secteur : ')),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 300,
-                      color: Colors.amber[500],
-                      child: const Center(child: Text(' Statut ')),
-                    ),
-                    Container(
-                      height: 50,
-                      color: Colors.amber[500],
-                      child: const Center(child: Text(' Risque : ' + 'aa')),
-                    ),
-                    Container(
-                      height: 50,
-                      child:
-                      Center(child: Image.asset('./images/sncf-logo.png')),
-                    ),
-                  ],
-                ))),
-      );
-    }
-    return GridView.count(
-      crossAxisCount: 3,
-      children: [],
-    );
-  }
-}*/
-
-/*listeDeProjet() {
-  Expanded(
-      child: Container(
-          color: Colors.blue,
-          child: ListView(
-            padding: const EdgeInsets.all(8),
-            children: <Widget>[
-              Container(
-                height: 50,
-                width: 300,
-                color: Colors.amber[600],
-                child: const Center(child: Text('Nom du projet')),
-              ),
-              Container(
-                height: 50,
-                width: 300,
-                color: Colors.amber[500],
-                child: const Center(child: Text(' Porteur : ')),
-              ),
-              Container(
-                height: 50,
-                width: 300,
-                color: Colors.amber[500],
-                child: const Center(child: Text(' Secteur : ')),
-              ),
-              Container(
-                height: 50,
-                width: 300,
-                color: Colors.amber[500],
-                child: const Center(child: Text(' Statut ')),
-              ),
-              Container(
-                height: 50,
-                color: Colors.amber[500],
-                child: const Center(child: Text(' Risque : ' + 'aa')),
-              ),
-              Container(
-                height: 50,
-                child: Center(child: Image.asset('./images/sncf-logo.png')),
-              ),
-            ],
-          )));
-
-  return GridView.count(
-      primary: false,
-      padding: const EdgeInsets.all(20),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      crossAxisCount: 3,
-      children: [
-        spaceBox(),
-        Container(
-            color: Colors.blue,
-            child: ListView(
-              padding: const EdgeInsets.all(8),
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  width: 300,
-                  color: Colors.amber[600],
-                  child: const Center(child: Text('Nom du projet')),
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  color: Colors.amber[500],
-                  child: const Center(child: Text(' Porteur : ')),
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  color: Colors.amber[500],
-                  child: const Center(child: Text(' Secteur : ')),
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  color: Colors.amber[500],
-                  child: const Center(child: Text(' Statut ')),
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.amber[500],
-                  child: const Center(
-                      child: Text(' Risque : ' + 'aa')),
-                ),
-                Container(
-                  height: 50,
-                  child: Center(
-                      child: Image.asset('./images/sncf-logo.png')),
-                ),
-              ],
-            )),
-        space(10, 10),
-        Container(
-            color: Colors.blue,
-            child: ListView(
-              padding: const EdgeInsets.all(8),
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  width: 300,
-                  color: Colors.amber[600],
-                  child: const Center(child: Text('Nom du projet')),
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  color: Colors.amber[500],
-                  child: const Center(child: Text(' Porteur : ')),
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  color: Colors.amber[500],
-                  child: const Center(child: Text(' Secteur : ')),
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  color: Colors.amber[500],
-                  child: const Center(child: Text(' Statut ')),
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.amber[500],
-                  child: const Center(
-                      child: Text(' Risque : ' + 'aa')),
-                ),
-                Container(
-                  height: 50,
-                  child: Center(
-                      child: Image.asset('./images/sncf-logo.png')),
-                ),
-              ],
-            )),
-      ]);
-
-}*/
-
 class HomeSmallPageState extends State<HomeSmallPage> {
   @override
   Widget build(BuildContext context) {
@@ -227,57 +29,37 @@ class HomeSmallPageState extends State<HomeSmallPage> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            // first 4 boxes in grid
-            AspectRatio(
-              aspectRatio: 4,
-              child: SizedBox(
-                width: double.infinity,
-                child: GridView.builder(
-                  itemCount: 4,
-                  gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (context, index) {
-                    return MyBox();
-                  },
-                ),
-              ),
-            ),
-            AspectRatio(
-              aspectRatio: 4,
-              child: SizedBox(
-                width: double.infinity,
-                child: GridView.builder(
-                  itemCount: 4,
-                  gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (context, index) {
-                    return MyBox();
-                  },
-                ),
-              ),
-            ),
-            AspectRatio(
-              aspectRatio: 4,
-              child: SizedBox(
-                width: double.infinity,
-                child: GridView.builder(
-                  itemCount: 4,
-                  gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (context, index) {
-                    return MyBox();
-                  },
-                ),
-              ),
+          children: [
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: generateAspectRatioList(10).length,
+              itemBuilder: (BuildContext context, int index) {
+                return generateAspectRatioList(10)[index];
+              },
             ),
           ],
         ),
       ),
     );
-    }
   }
+}
 
+/*afficheProjet(int nbProjet) {
+  List<AspectRatio> listProjet =
+  for (int i = 0; i < nbProjet; i++) {
+    AspectRatio(aspectRatio: 1, child: MyBox())
+  }
+  return listProjet;
+}*/
+
+List<AspectRatio> generateAspectRatioList(int nbProjet) {
+  List<AspectRatio> aspectRatioList = [];
+  for (int i = 0; i < nbProjet; i++) {
+    AspectRatio aspectRatio = AspectRatio(aspectRatio: 1, child: MyBox()
+
+    );
+    aspectRatioList.add(aspectRatio);
+  }
+  return aspectRatioList;
+}

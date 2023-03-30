@@ -32,7 +32,7 @@ class MyBox extends StatelessWidget {
               ),
               space(2,2),
               Container(
-                height: 50,
+                height: 45,
                 width: 300,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -43,7 +43,7 @@ class MyBox extends StatelessWidget {
                   space(2,2),
 
                   Container(
-                height: 50,
+                height: 45,
                 width: 300,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -53,7 +53,7 @@ class MyBox extends StatelessWidget {
               ),
                   space(2,2),
               Container(
-                height: 50,
+                height: 45,
                 width: 300,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -63,7 +63,7 @@ class MyBox extends StatelessWidget {
               ),
                   space(2,2),
               Container(
-                height: 50,
+                height: 45,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.blueGrey[400],
@@ -72,7 +72,7 @@ class MyBox extends StatelessWidget {
               ),
                   space(2,2),
               Container(
-                height: 50,
+                height: 45,
                 child: Center(child: Image.asset('./images/sncf-logo.png')),
               ),
                   space(2,2),

@@ -8,102 +8,77 @@ class HomeMediumPage extends StatefulWidget {
   createState() => HomeMediumPageState();
 }
 
-test(int nb, BuildContext context) {
-  return Column(
-    children: [
-      Container(
-          width: 300.0 * nb,
-          height: 100.0 * nb,
-          color: Colors.blue,
-          child: Text('ehehe'))
-    ],
-  );
-}
-
-scroll() {
-  return CustomScrollView(
-    slivers: <Widget>[
-      SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              child: Text('Item: 12'),
-            );
-          },
-        ),
-      ),
-      SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              child: Text('Item: 11'),
-            );
-          },
-        ),
-      ),
-    ],
-  );
-}
+//TODO : Faire le responsive de l'affichage des Projets du Home
 
 class HomeMediumPageState extends State<HomeMediumPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-                  // first 4 boxes in grid
-                  AspectRatio(
-                    aspectRatio: 4,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: GridView.builder(
-                        itemCount: 4,
-                        gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4),
-                        itemBuilder: (context, index) {
-                          return MyBox();
-                        },
-                      ),
-                    ),
-                  ),
-            AspectRatio(
-              aspectRatio: 4,
-              child: SizedBox(
-                width: double.infinity,
-                child: GridView.builder(
-                  itemCount: 4,
-                  gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (context, index) {
-                    return MyBox();
-                  },
-                ),
-              ),
-            ),
-            AspectRatio(
-              aspectRatio: 4,
-              child: SizedBox(
-                width: double.infinity,
-                child: GridView.builder(
-                  itemCount: 4,
-                  gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (context, index) {
-                    return MyBox();
-                  },
-                ),
-              ),
-            ),
-                ],
-              ),
-            ),
-        );
+    if(MediaQuery.of(context).size.width < 670){
+      return affichageLigneBox(context, 2);
+    } else if (MediaQuery.of(context).size.width < 1100){
+      return affichageLigneBox(context, 3);
+    } else {
+      return affichageLigneBox(context, 4);
+    }
+
+
   }
+}
+
+affichageLigneBox(BuildContext context, int size){
+  return Scaffold(
+    body: SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          // first 4 boxes in grid
+          AspectRatio(
+            aspectRatio: 4,
+            child: SizedBox(
+              width: double.infinity,
+              child: GridView.builder(
+                itemCount: size,
+                gridDelegate:
+                const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4),
+                itemBuilder: (context, index) {
+                  return MyBox();
+                },
+              ),
+            ),
+          ),
+          AspectRatio(
+            aspectRatio: 4,
+            child: SizedBox(
+              width: double.infinity,
+              child: GridView.builder(
+                itemCount: size,
+                gridDelegate:
+                const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4),
+                itemBuilder: (context, index) {
+                  return MyBox();
+                },
+              ),
+            ),
+          ),
+          AspectRatio(
+            aspectRatio: 4,
+            child: SizedBox(
+              width: double.infinity,
+              child: GridView.builder(
+                itemCount: size,
+                gridDelegate:
+                const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4),
+                itemBuilder: (context, index) {
+                  return MyBox();
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }

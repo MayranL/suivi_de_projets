@@ -15,6 +15,8 @@ class MyProject extends StatelessWidget {
   void setState(Null Function() param0) {}
 }
 
+//TODO : Voir si un AlertDialog peut fonctionner pour afficher les informations et si cela fonctionne alors développer avec un jeu de test en brut
+
 class Cadrage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -231,11 +233,49 @@ class AffichageInfo extends StatefulWidget {
 }
 
 class _AffichageInfoState extends State<AffichageInfo> {
+  final controller = ScrollController();
+
   @override
   Widget build(BuildContext context) {
-    //TODO : faire un test en fonction de la taille de l'écran si >800 afficher 3 blocs etc...
     if (MediaQuery.of(context).size.height < 800) {
-      if (MediaQuery.of(context).size.width < 1400) {
+      //Affichage en mode téléphone
+      if (MediaQuery.of(context).size.width < 600) {
+        //return affichageVuePhone(context);
+        return Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Scrollbar(
+                isAlwaysShown: true,
+                controller: controller,
+                scrollbarOrientation: ScrollbarOrientation.right,
+                thickness: 10,
+                // Afficher la barre de défilement à droite
+                child: ListView.separated(
+                  padding: EdgeInsets.all(10),
+                  itemBuilder: (context, index) {
+                    switch (index) {
+                      case 0:
+                        return Hebergement();
+                      case 1:
+                        return Cadrage();
+                      case 2:
+                        return Realisation();
+                      case 3:
+                        return OuvertureProd();
+                      default:
+                        return SizedBox.shrink();
+                    }
+                  },
+                  separatorBuilder: (context, index) => SizedBox(height: 8),
+                  itemCount: 4,
+                  scrollDirection: Axis.vertical,
+                  controller: controller,
+                ),
+              ),
+            ));
+      } else if (MediaQuery.of(context).size.width < 1400) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -378,3 +418,43 @@ mainAxisAlignment: MainAxisAlignment.center,
 children: containerList2,
 );
  */
+
+//TODO : Gérer l'affichage sur le téléphone de la liste des informations
+affichageVuePhone(BuildContext context) {
+  return SingleChildScrollView(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ListView.builder(
+          padding: const EdgeInsets.all(8),
+          shrinkWrap: true,
+          itemCount: generateAspectRatioList().length,
+          itemBuilder: (BuildContext context, int index) {
+            return generateAspectRatioList()[index];
+          },
+        ),
+      ],
+    ),
+  );
+}
+
+List<AspectRatio> generateAspectRatioList() {
+  List<AspectRatio> aspectRatioList = [];
+  for (int i = 0; i < 1; i++) {
+    AspectRatio aspectRatio = AspectRatio(
+        aspectRatio: 1,
+        child: ListView(
+          padding: const EdgeInsets.all(8),
+          children: [
+            Hebergement(),
+            space(10, 1),
+            Hebergement(),
+            Cadrage(),
+            Realisation(),
+            OuvertureProd(),
+          ],
+        ));
+    aspectRatioList.add(aspectRatio);
+  }
+  return aspectRatioList;
+}

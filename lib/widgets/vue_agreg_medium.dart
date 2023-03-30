@@ -17,10 +17,7 @@ class VueAgregeeMediumPageState extends State<VueAgregeeMediumPage> {
     return Scaffold(
         appBar: myAppBar,
         drawer: header(context),
-        body: Padding(padding: EdgeInsets.all(10.0),
-          child: MyProject(),
-          )
-          //MyProject(),
+        body: MyProject()
         );
   }
 }
