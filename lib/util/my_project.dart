@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:suivi_de_projets/constants.dart';
 
+import 'animated_container.dart';
+import 'my_hebergement.dart';
+
 bool isHover = false;
 
 class MyProject extends StatelessWidget {
@@ -59,7 +62,9 @@ class Cadrage extends StatelessWidget {
                 backgroundColor: Colors.green,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5.0))),
-            onPressed: () {},
+            onPressed: () {
+              MyAnimatedContainers();
+            },
             child: const Text('Vue agrégée'),
           ),
         ),
@@ -68,7 +73,16 @@ class Cadrage extends StatelessWidget {
   }
 }
 
+/*
 class Hebergement extends StatelessWidget {
+
+  Map<String,String> _map = {
+    'redacDAL' : "aa",
+    'devisDAT': "",
+    'statut': "",
+    'risque': "",
+  };
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -87,19 +101,19 @@ class Hebergement extends StatelessWidget {
         ),
         Container(
           height: 50,
-          child: const Center(child: Text(' Rédaction du DAL : ')),
+          child: Center(child: Text(" Rédaction du DAL : " + _map['redacDAL']!)),
         ),
         Container(
           height: 50,
-          child: const Center(child: Text(' Devis sur le DAT : ')),
+          child: Center(child: Text(' Devis sur le DAT : '+ _map['devisDAT']!)),
         ),
         Container(
           height: 50,
-          child: const Center(child: Text(' Statut : ')),
+          child: Center(child: Text(' Statut : '+ _map['statut']!)),
         ),
         Container(
           height: 50,
-          child: const Center(child: Text(' Risque : ')),
+          child: Center(child: Text(' Risque : '+ _map['risque']!)),
         ),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 10),
@@ -112,10 +126,79 @@ class Hebergement extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5.0))),
             onPressed: () {
               showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                        title: Text("Information prévu pour ce bloc"),
-                      ));
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text("Edit Hebergement"),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "Rédaction DAL",
+                          ),
+                          initialValue: _map['redacDAL'],
+                          onChanged: (value) {
+                            setState(() {
+                              _map['redacDAL'] = value;
+                              print(value);
+                            });
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "Devis DAT",
+                          ),
+                          initialValue: _map['devisDAT'].toString(),
+                          onChanged: (value) {
+                            setState(() {
+                              _map['devisDAT'] = value;
+                            });
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "Statut",
+                          ),
+                          initialValue: _map['statut'].toString(),
+                          onChanged: (value) {
+                            setState(() {
+                              _map['statut'] = value;
+                            });
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "Risque",
+                          ),
+                          initialValue: _map['statut'].toString(),
+                          onChanged: (value) {
+                            setState(() {
+                              _map['statut'] = value;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("Cancel"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          // Save changes and close the dialog
+                          Navigator.pop(context);
+                        },
+                        child: Text("Save"),
+                      ),
+                    ],
+                  );
+                },
+
+              );
             },
             child: const Text('Vue détaillée'),
           ),
@@ -124,6 +207,8 @@ class Hebergement extends StatelessWidget {
     );
   }
 }
+ */
+
 
 class Realisation extends StatelessWidget {
   @override
