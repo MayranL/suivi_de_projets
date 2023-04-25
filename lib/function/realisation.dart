@@ -1,60 +1,65 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Hebergement extends StatefulWidget {
+class Realisation extends StatefulWidget {
+  const Realisation({Key? key}) : super(key: key);
+
   @override
-  _HebergementState createState() {
-    return _HebergementState();
-  }
+  State<Realisation> createState() => _RealisationState();
 }
 
-class _HebergementState extends State<Hebergement> {
+class _RealisationState extends State<Realisation> {
+
   Map<String,String> _map = {
-    'redacDAL' : "",
-    'devisDAT': "",
-    'statut': "",
-    'risque': "",
+    'text1' : "",
+    'text2': "",
+    'text3': "",
+    'text4': "",
   };
 
-  String _redacDAL = "";
-  String _devisDAT = "";
-  String _statut = "";
-  String _risque = "";
+  String text1 = "";
+  String text2 = "";
+  String text3 = "";
+  String text4 = "";
+
+  String title = "Edit Realisation";
+  String labelText1 = "Découpage en sprint : ";
+  String labelText2 = "Dev des US : ";
+  String labelText3 = "Statut : ";
+  String labelText4 = "Risque : ";
+
 
   @override
   Widget build(BuildContext context) {
-    // Widget code here
     return Container(
       width: MediaQuery.of(context).size.width / 4,
       height: MediaQuery.of(context).size.height / 4,
       decoration: BoxDecoration(
-          color: Colors.lightBlue, borderRadius: BorderRadius.circular(20.0)),
+          color: Colors.deepPurple, borderRadius: BorderRadius.circular(20.0)),
       child: ListView(padding: const EdgeInsets.all(8), children: <Widget>[
         Container(
           height: 50,
           child: const Center(
               child: Text(
-                'Hebergement',
+                'Realisation',
                 style: TextStyle(fontSize: 25),
               )),
         ),
         Container(
           height: 50,
-          child: Center(child: Text(" Rédaction du DAL : " + _map['redacDAL']!)),
+          child: Center(child: Text(labelText1 + _map['text1']!)),
         ),
         Container(
           height: 50,
-          child: Center(child: Text(' Devis sur le DAT : '+ _map['devisDAT']!)),
+          child: Center(child: Text(labelText2 + _map['text2']!)),
         ),
         Container(
           height: 50,
-          child: Center(child: Text(' Statut : '+ _map['statut']!)),
+          child: Center(child: Text(labelText3 + _map['text3']!)),
         ),
         Container(
           height: 50,
-          child: Center(child: Text(' Risque : '+ _map['risque']!)),
+          child: Center(child: Text(labelText4 + _map['text4']!)),
         ),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 10),
@@ -69,52 +74,53 @@ class _HebergementState extends State<Hebergement> {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
+                  // return popUp(title,labelText1...);
                   return AlertDialog(
-                    title: Text("Edit Hebergement"),
+                    title: Text(title),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: "Rédaction DAL",
+                            labelText: labelText1,
                           ),
-                          initialValue: _map['redacDAL'],
+                          initialValue: _map['text1'],
                           onChanged: (value) {
                             setState(() {
-                              _redacDAL = value;
+                              text1 = value;
                             });
                           },
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: "Devis DAT",
+                            labelText: labelText2,
                           ),
-                          initialValue: _map['devisDAT'].toString(),
+                          initialValue: _map['text2'].toString(),
                           onChanged: (value) {
                             setState(() {
-                              _devisDAT = value;
+                              text2 = value;
                             });
                           },
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: "Statut",
+                            labelText: labelText3,
                           ),
-                          initialValue: _map['statut'].toString(),
+                          initialValue: _map['text3'].toString(),
                           onChanged: (value) {
                             setState(() {
-                              _statut = value;
+                              text3 = value;
                             });
                           },
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: "Risque",
+                            labelText: labelText4,
                           ),
-                          initialValue: _map['statut'].toString(),
+                          initialValue: _map['text4'].toString(),
                           onChanged: (value) {
                             setState(() {
-                              _risque = value;
+                              text4 = value;
                             });
                           },
                         ),
@@ -130,10 +136,10 @@ class _HebergementState extends State<Hebergement> {
                       TextButton(
                         onPressed: () {
                           setState(() {
-                            _map['redacDAL'] = _redacDAL;
-                            _map['devisDAT'] = _devisDAT;
-                            _map['statut'] = _statut;
-                            _map['risque'] = _risque;
+                            _map['text1'] = text1;
+                            _map['text2'] = text2;
+                            _map['text3'] = text3;
+                            _map['text4'] = text4;
                           });
                           // Save changes and close the dialog
                           Navigator.pop(context);
@@ -149,7 +155,6 @@ class _HebergementState extends State<Hebergement> {
             child: const Text('Vue détaillée'),
           ),
         ),
-      ]),
-    );
+      ]),);
   }
 }
