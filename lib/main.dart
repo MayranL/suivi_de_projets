@@ -1,3 +1,4 @@
+//TODO : Réel code de l'application :
 
 import 'package:flutter/material.dart';
 import 'package:suivi_de_projets/pages/home_page.dart';
@@ -17,24 +18,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    /*return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Suivi de Projets',
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Avenir'),
-      home: ResponsiveLayout(
-        mobileBody: const MobileScaffold(),
-        desktopBody: const DesktopScaffold(),
-      ),
-    );*/
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Suivi de Projets',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Avenir'),
-      home: HomePage(),
+      /*home: ResponsiveLayout(
+        mobileBody: const MobileScaffold(),
+        desktopBody: const DesktopScaffold(),
+      ),*/
+      home: VueAgregeeMediumPage(),
     );
   }
 }
 
+//TODO : Autre
 /*
 import 'package:example/demo_grid_builder.dart';
 import 'package:example/demo_grid_sliver.dart';
