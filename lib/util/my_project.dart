@@ -188,26 +188,3 @@ class _DraggableContainerListState extends State<DraggableContainerList> {
   }
 }
 */
-
-//TODO : Affichage de la liste des informations en sous vue agrégée
-/*
-List<String> dataList2 = ['Element 1', 'Element 2', 'Element 3', 'Element 4'];
-
-List<Container> containerList2 = dataList2.map((element) {
-  return Container(
-    width: 150,
-    height: 50,
-    decoration: BoxDecoration(
-      border: Border.all(color: Colors.black),
-    ),
-    child: Center(
-      child: Text(element),
-    ),
-  );
-}).toList();
-
-return Column(
-mainAxisAlignment: MainAxisAlignment.center,
-children: containerList2,
-);
- */
